@@ -1,17 +1,23 @@
+echo "🔥 Installing dependencies for Cyber Toolkit 🔥"
+sleep 1
 
-GREEN="\e[32m"
-YELLOW="\e[33m"
-RED="\e[31m"
-RESET="\e[0m"
 
-echo -e "${YELLOW}🔄 Update & Upgrade package...${RESET}"
+echo "📦 Updating package list..."
 pkg update && pkg upgrade -y
 
-echo -e "${YELLOW}📦 Menginstall dependensi Termux...${RESET}"
-pkg install python whois nmap git -y
 
-echo -e "${YELLOW}🐍 Menginstall module Python...${RESET}"
-pip install requests phonenumbers rich
+echo "🐍 Installing Python and pip..."
+pkg install python -y
+pkg install python-pip -y
 
-echo -e "${GREEN}✅ Semua dependensi telah diinstal!${RESET}"
-python main.py
+
+echo "📌 Installing required Python modules..."
+pip install requests rich phonenumbers
+
+
+echo "🔍 Installing Metasploit, Nmap, and other tools..."
+pkg install nmap -y
+pkg install metasploit -y
+
+echo "✅ Installation complete!"
+echo "🚀 You can now run the script using: python main.py"
